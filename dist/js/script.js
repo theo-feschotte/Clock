@@ -1,12 +1,10 @@
-const textDayWordContainer = document.querySelector("#text-dayword-container");
-const textDayNumberContainer = document.querySelector(
-  "#text-daynumber-container"
-);
-const textMonthContainer = document.querySelector("#text-month-container");
-const textYearContainer = document.querySelector("#text-year-container");
-const textHoursContainer = document.querySelector("#text-hours-container");
-const textMinutesContainer = document.querySelector("#text-minutes-container");
-const textSecondsContainer = document.querySelector("#text-seconds-container");
+const textDayWordContainer = document.querySelector(".texts__date--dayword");
+const textDayNumberContainer = document.querySelector(".texts__date--daynumber");
+const textMonthContainer = document.querySelector(".texts__date--month");
+const textYearContainer = document.querySelector(".texts__date--year");
+const textHoursContainer = document.querySelector(".texts__time--hours");
+const textMinutesContainer = document.querySelector(".texts__time--minutes");
+const textSecondsContainer = document.querySelector(".texts__time--seconds");
 let dayWordArray = [
   "Dimanche",
   "Lundi",
@@ -31,9 +29,9 @@ let monthArray = [
   "Décembre",
 ];
 
-const hourNeedle = document.querySelector("#hours-needle");
-const minNeedle = document.querySelector("#minutes-needle");
-const secNeedle = document.querySelector("#seconds-needle");
+const hourNeedle = document.querySelector(".the-clock__hours--needle");
+const minNeedle = document.querySelector(".the-clock__minutes--needle");
+const secNeedle = document.querySelector(".the-clock__seconds--needle");
 
 setInterval(() => {
   let day = new Date();
@@ -72,22 +70,12 @@ setInterval(() => {
   let hoursDegrees = day.getHours() * 30;
   let minutesDegrees = day.getMinutes() * 6;
   let secondsDegrees = day.getSeconds() * 6;
-  hourNeedle.style.transform = `rotateZ(${
-    hoursDegrees + minutesDegrees / 12
-  }deg)`;
+  hourNeedle.style.transform = `rotateZ(${hoursDegrees + minutesDegrees / 12}deg)`;
   minNeedle.style.transform = `rotateZ(${minutesDegrees}deg)`;
   secNeedle.style.transform = `rotateZ(${secondsDegrees}deg)`;
 });
 
-function toggleLightDark() {
-  $("#body").toggleClass("body-background-dark");
-  $(".toggle").toggleClass("toggle-shadow-dark");
-  $(".toggler").toggleClass("toggler-background-dark");
-  $(".points").toggleClass("points-color-light");
-  $(".clock-container").toggleClass("clockcontainer-background-dark");
-  $(".clock-container").toggleClass("clockcontainer-border-dark");
-  $(".clock-container").toggleClass("clockcontainer-shadow-dark");
-  $(".hours").toggleClass("hours-background-dark");
-  $(".minutes").toggleClass("minutes-background-dark");
-  $(".seconds").toggleClass("seconds-background-dark");
-}
+const toggle = document.querySelector(".texts__toggle");
+toggle.addEventListener("click", function() {
+  $(".clock").toggleClass("clock--dark");
+});

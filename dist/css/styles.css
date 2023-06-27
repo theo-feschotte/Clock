@@ -1,279 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+p,
+div {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+p {
+  font-weight: 600;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 body {
-  width: 100%;
+  width: 100vw;
+  min-width: 100vw;
+  max-width: 100vw;
   height: 100vh;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  background-color: #999999;
+  min-height: 100vh;
+  max-height: 100vh;
+  background-color: hsl(0, 0%, 50%);
   overflow: hidden;
 }
-.body-background-dark {
-  background-color: #333333 !important;
-}
 
-div.text-container {
-  width: auto;
-  height: auto;
-  margin: -15% 0 5% 0;
-  padding: 0;
-}
-
-div.toggle-container {
-  width: auto;
-  height: auto;
-  margin: 0;
-  padding: 0;
+.clock {
+  width: 100%;
+  height: 100%;
+  padding: 20vh 20vw;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  gap: 50px;
 }
 
-div.text-container div.toggle-container div.toggle {
+.texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+.texts__toggle {
   width: 75px;
   height: 35px;
-  margin: 0;
-  padding: 0;
   position: relative;
-  background-color: #666666;
   border-radius: 100px;
-  box-shadow: -10px -10px 15px rgba(200, 200, 200, 0.25),
-    10px 10px 10px rgba(200, 200, 200, 0.25),
-    inset -5px -5px 15px rgba(200, 200, 200, 0.25),
-    inset 10px 10px 10px rgba(200, 200, 200, 0.25);
-}
-div.text-container div.toggle-container div.toggle-shadow-dark {
-  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.15),
-    10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15),
-    inset 10px 10px 10px rgba(0, 0, 0, 0.15) !important;
-}
-
-div.text-container div.toggle-container div.toggle:hover {
+  background-color: hsl(222, 10%, 15%);
+  box-shadow: -10px -10px 15px rgba(200, 200, 200, 0.25), 10px 10px 10px rgba(200, 200, 200, 0.25), inset -5px -5px 15px rgba(200, 200, 200, 0.25), inset 10px 10px 10px rgba(200, 200, 200, 0.25);
   cursor: pointer;
 }
-
-div.text-container div.toggle-container div.toggle div.toggler {
+.texts__toggle--toggler {
   width: 25px;
   height: 25px;
-  margin: 0;
-  padding: 0;
   position: absolute;
-  top: 5px;
-  left: 10%;
-  right: auto;
+  top: calc(50% - 12.5px);
+  left: calc(25% - 12.5px);
+  right: unset;
   border-radius: 100%;
-  background-color: #999999;
+  background-color: hsl(0, 0%, 50%);
 }
-.toggler-background-dark {
-  background-color: #333333 !important;
-}
-
-div.text-container div.toggle-container div.toggle > .toggler-background-dark {
-  left: auto !important;
-  right: 10% !important;
-}
-
-div.datetime-container {
-  width: auto;
-  height: auto;
-  margin: 0;
-  padding: 0;
+.texts__datetime {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
-  align-content: center;
+  gap: 10px;
+  color: hsl(222, 10%, 15%);
 }
-
-div.datetime-container div.date-container {
-  width: auto;
-  height: auto;
-  margin: 5% 0;
-  padding: 0;
+.texts__date {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
   justify-content: center;
-  align-content: center;
+  gap: 5px;
 }
-
-div.datetime-container div.date-container p#text-dayword-container,
-div.datetime-container div.date-container p#text-daynumber-container,
-div.datetime-container div.date-container p#text-month-container,
-div.datetime-container div.date-container p#text-year-container {
-  width: auto;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  font-size: 1.11em;
-  color: #666666;
-}
-
-div.datetime-container div.time-container {
-  width: auto;
-  height: auto;
-  margin: 5% 0;
-  padding: 0;
+.texts__time {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
   justify-content: center;
-  align-content: center;
+  gap: 5px;
 }
 
-div.datetime-container div.time-container p#text-hours-container,
-div.datetime-container div.time-container p#text-minutes-container,
-div.datetime-container div.time-container p#text-seconds-container {
-  width: auto;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  font-size: 1.11em;
-  color: #666666;
-}
-
-div.datetime-container div.time-container span.points {
-  width: auto;
-  height: auto;
-  margin: 0 5%;
-  padding: 0;
-  font-size: 1em;
-  color: #333333;
-}
-.points-color-light {
-  color: #999999 !important;
-}
-
-.clock-container {
+.the-clock {
   width: 250px;
-  height: 250px;
+  height: auto;
+  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../images/clock.svg");
-  background-repeat: no-repeat;
-  border: solid 5px #999999;
+  border: solid 5px hsl(0, 0%, 50%);
   border-radius: 100%;
-  box-shadow: -10px -10px 15px rgba(200, 200, 200, 0.25),
-    10px 10px 10px rgba(100, 100, 100, 0.25),
-    inset -5px -5px 15px rgba(200, 200, 200, 0.25),
-    inset 10px 10px 10px rgba(100, 100, 100, 0.25);
+  box-shadow: -10px -10px 15px rgba(200, 200, 200, 0.25), 10px 10px 10px rgba(100, 100, 100, 0.25), inset -5px -5px 15px rgba(200, 200, 200, 0.25), inset 10px 10px 10px rgba(100, 100, 100, 0.25);
 }
-.clockcontainer-background-dark {
-  background-color: #333333 !important;
-}
-.clockcontainer-border-dark {
-  border-color: #333333 !important;
-}
-.clockcontainer-shadow-dark {
-  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.15),
-    10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15),
-    inset 10px 10px 10px rgba(0, 0, 0, 0.15) !important;
-}
-
-.clock-container::before {
+.the-clock::before {
   content: "";
   width: 15px;
-  height: 15px;
+  height: auto;
+  aspect-ratio: 1/1;
   position: absolute;
-  background-color: #999999;
-  border-radius: 100%;
   z-index: 1000;
-  box-shadow: -5px -5px 10px rgba(100, 100, 100, 0.25),
-    5px 5px 5px rgba(100, 100, 100, 0.25),
-    inset 0px 0px 5px rgba(200, 200, 200, 0.25),
-    inset 5px 5px 5px rgba(200, 200, 200, 0.25);
+  border-radius: 100%;
+  background-color: hsl(0, 0%, 50%);
+  box-shadow: -5px -5px 10px rgba(100, 100, 100, 0.25), 5px 5px 5px rgba(100, 100, 100, 0.25), inset 0px 0px 5px rgba(200, 200, 200, 0.25), inset 5px 5px 5px rgba(200, 200, 200, 0.25);
 }
-.clock-container.clockcontainer-background-dark::before {
-  background-color: #333333 !important;
+.the-clock::after {
+  content: "";
+  width: inherit;
+  aspect-ratio: 1/1;
+  background-image: url("../images/clock.svg");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
-.clock-container.clockcontainer-shadow-dark::before {
-  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.15),
-    10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15),
-    inset 10px 10px 10px rgba(0, 0, 0, 0.15) !important;
-}
-
-.clock-container .hours-container,
-.clock-container .minutes-container,
-.clock-container .seconds-container {
+.the-clock__seconds, .the-clock__minutes, .the-clock__hours {
+  height: auto;
+  aspect-ratio: 1/1;
   position: absolute;
 }
-
-.clock-container .hours-container,
-.hours {
-  width: 100px;
-  height: 100px;
-}
-
-.clock-container .minutes-container,
-.minutes {
-  width: 125px;
-  height: 125px;
-}
-
-.clock-container .seconds-container,
-.seconds {
-  width: 175px;
-  height: 175px;
-}
-
-.hours,
-.minutes,
-.seconds {
+.the-clock__seconds--needle, .the-clock__minutes--needle, .the-clock__hours--needle {
+  width: inherit;
+  height: inherit;
+  aspect-ratio: inherit;
   display: flex;
   justify-content: center;
   position: absolute;
 }
-
-.hours::before {
-  content: "";
-  width: 5px;
-  height: 50px;
-  position: absolute;
-  background-color: #666666;
-  border-radius: 100px 100px 0 0;
-}
-.hours-background-dark::before {
-  background-color: #666666 !important;
-}
-
-.minutes::before {
-  width: 3px;
-  height: 75px;
+.the-clock__seconds--needle::before, .the-clock__minutes--needle::before, .the-clock__hours--needle::before {
   content: "";
   position: absolute;
-  background-color: #333333;
   border-radius: 100px 100px 0 0;
 }
-.minutes-background-dark::before {
-  background-color: #999999 !important;
+.the-clock__seconds {
+  width: 175px;
 }
-
-.seconds::before {
+.the-clock__seconds--needle::before {
   width: 1px;
   height: 100px;
-  content: "";
-  position: absolute;
-  background-color: #000000;
-  border-radius: 100px 100px 0 0;
+  background-color: hsl(0, 0%, 5%);
 }
-.seconds-background-dark::before {
-  background-color: #ffffff !important;
+.the-clock__minutes {
+  width: 125px;
 }
+.the-clock__minutes--needle::before {
+  width: 3px;
+  height: 75px;
+  background-color: hsl(0, 0%, 5%);
+}
+.the-clock__hours {
+  width: 100px;
+}
+.the-clock__hours--needle::before {
+  width: 5px;
+  height: 50px;
+  background-color: hsl(0, 0%, 5%);
+}
+
+.clock--dark {
+  background-color: hsl(0, 0%, 5%);
+}
+.clock--dark .texts__toggle {
+  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.15), 10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15), inset 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+.clock--dark .texts__toggle--toggler {
+  left: unset;
+  right: calc(25% - 12.5px);
+  background-color: hsl(0, 0%, 50%);
+}
+.clock--dark .texts__datetime {
+  color: hsl(0, 0%, 50%);
+}
+.clock--dark .the-clock {
+  border-color: hsl(222, 10%, 15%);
+  background-color: hsl(0, 0%, 5%);
+  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.15), 10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15), inset 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+.clock--dark .the-clock::before {
+  background-color: hsl(222, 10%, 15%);
+  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.15), 10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15), inset 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+.clock--dark .the-clock::after {
+  filter: invert(50%);
+}
+.clock--dark .the-clock__seconds--needle::before {
+  background-color: hsl(0, 0%, 50%);
+}
+.clock--dark .the-clock__minutes--needle::before {
+  background-color: hsl(0, 0%, 50%);
+}
+.clock--dark .the-clock__hours--needle::before {
+  background-color: hsl(0, 0%, 50%);
+}
+
+/*# sourceMappingURL=styles.css.map */

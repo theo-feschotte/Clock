@@ -16,42 +16,40 @@
     <link rel="stylesheet" href="/dist/css/styles.css">
 </head>
 
-<body id="body">
+<body>
 
     <section class="clock">
         
-        <div class="text-container">
-            <div class="toggle-container">
-                <div class="toggle" onclick="toggleLightDark()">
-                    <div class="toggler"></div>
-                </div>
+        <div class="texts">
+            <div class="texts__toggle">
+                <div class="texts__toggle--toggler"></div>
             </div>
-            <div class="datetime-container">
-                <div class="date-container">
-                    <p id="text-dayword-container"></p>
-                    <p id="text-daynumber-container"></p>
-                    <p id="text-month-container"></p>
-                    <p id="text-year-container"></p>
+            <div class="texts__datetime">
+                <div class="texts__date">
+                    <p class="texts__date--dayword"></p>
+                    <p class="texts__date--daynumber"></p>
+                    <p class="texts__date--month"></p>
+                    <p class="texts__date--year"></p>
                 </div>
-                <div class="time-container">
-                    <p id="text-hours-container"></p>
-                    <span class="points">:</span>
-                    <p id="text-minutes-container"></p>
-                    <span class="points">:</span>
-                    <p id="text-seconds-container"></p>
+                <div class="texts__time">
+                    <p class="texts__time--hours"></p>
+                <p class="texts__time--points">:</p>
+                    <p class="texts__time--minutes"></p>
+                <p class="texts__time--points">:</p>
+                    <p class="texts__time--seconds"></p>
                 </div>
             </div>
         </div>
         
-        <div class="clock-container">
-            <div class="seconds-container">
-                <div id="seconds-needle" class="seconds"></div>
+        <div class="the-clock">
+            <div class="the-clock__seconds">
+                <div class="the-clock__seconds--needle"></div>
             </div>
-            <div class="minutes-container">
-                <div id="minutes-needle" class="minutes"></div>
+            <div class="the-clock__minutes">
+                <div class="the-clock__minutes--needle"></div>
             </div>
-            <div class="hours-container">
-                <div id="hours-needle" class="hours"></div>
+            <div class="the-clock__hours">
+                <div class="the-clock__hours--needle"></div>
             </div>
         </div>
 
