@@ -1,5 +1,7 @@
 const textDayWordContainer = document.querySelector(".texts__date--dayword");
-const textDayNumberContainer = document.querySelector(".texts__date--daynumber");
+const textDayNumberContainer = document.querySelector(
+  ".texts__date--daynumber"
+);
 const textMonthContainer = document.querySelector(".texts__date--month");
 const textYearContainer = document.querySelector(".texts__date--year");
 const textHoursContainer = document.querySelector(".texts__time--hours");
@@ -70,12 +72,15 @@ setInterval(() => {
   let hoursDegrees = day.getHours() * 30;
   let minutesDegrees = day.getMinutes() * 6;
   let secondsDegrees = day.getSeconds() * 6;
-  hourNeedle.style.transform = `rotateZ(${hoursDegrees + minutesDegrees / 12}deg)`;
+  hourNeedle.style.transform = `rotateZ(${
+    hoursDegrees + minutesDegrees / 12
+  }deg)`;
   minNeedle.style.transform = `rotateZ(${minutesDegrees}deg)`;
   secNeedle.style.transform = `rotateZ(${secondsDegrees}deg)`;
 });
 
 const toggle = document.querySelector(".texts__toggle");
-toggle.addEventListener("click", function() {
+toggle.addEventListener("click", function () {
   $(".clock").toggleClass("clock--dark");
+  $(".fa-solid").toggleClass("fa-sun fa-moon");
 });

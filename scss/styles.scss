@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 $green : hsl(150, 100%, 60%);
-$light-grey : hsl(0, 0%, 50%);
-$grey : hsl(222, 10%, 15%);
 $dark-grey : hsl(0, 0%, 5%);
-$white : hsl(0, 0%, 100%);
+$grey :hsl(0, 0%, 50%);
+$light-grey :hsl(0, 5%, 90%);
 
 $fw-900 : 900;
 $fw-800 : 800;
@@ -43,7 +42,6 @@ body {
     height: 100vh;
     min-height: 100vh;
     max-height: 100vh;
-    background-color: $light-grey;
     overflow: hidden;
 }
 
@@ -56,6 +54,8 @@ body {
     justify-content: center;
     align-items: center;
     gap: 50px;
+    background-color: $light-grey;
+    transition: ease-in-out 0.25s;
 }
 
 .texts {
@@ -63,27 +63,31 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 25px;
+    user-select: none;
     &__toggle {
         width: 75px;
         height: 35px;
         position: relative;
         border-radius: 100px;
-        background-color: $grey;
-        box-shadow:
-            -10px -10px 15px rgba(200, 200, 200, 0.25),
-            10px 10px 10px rgba(200, 200, 200, 0.25),
-            inset -5px -5px 15px rgba(200, 200, 200, 0.25),
-            inset 10px 10px 10px rgba(200, 200, 200, 0.25);
+        background-color: $dark-grey;
         cursor: pointer;
         &--toggler {
             width: 25px;
             height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: absolute;
             top: calc(50% - 25px / 2);
             left: calc(25% - 25px / 2);
-            right: unset;
             border-radius: 100%;
             background-color: $light-grey;
+            transition: left ease-in-out 0.25s;
+            i {
+                color: $dark-grey;
+                font-size: 15px;
+                transition: ease-in-out 0.25s;
+            }
         }
     }
     &__datetime {
@@ -91,7 +95,8 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 10px;
-        color: $grey;
+        color: $dark-grey;
+        transition: ease-in-out 0.25s;
     }
     &__date {
         display: flex;
@@ -112,13 +117,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid 5px $light-grey;
+    border: solid 5px $dark-grey;
     border-radius: 100%;
-    box-shadow:
-        -10px -10px 15px rgba(200, 200, 200, 0.25),
-        10px 10px 10px rgba(100, 100, 100, 0.25),
-        inset -5px -5px 15px rgba(200, 200, 200, 0.25),
-        inset 10px 10px 10px rgba(100, 100, 100, 0.25);
+    transition: border-color ease-in 0.25s;
     &::before {
         content: '';
         width: 15px;
@@ -128,20 +129,10 @@ body {
         z-index: 1000;
         border-radius: 100%;
         background-color: $light-grey;
-        box-shadow:
-            -5px -5px 10px rgba(100, 100, 100, 0.25),
-            5px 5px 5px rgba(100, 100, 100, 0.25),
-            inset 0px 0px 5px rgba(200, 200, 200, 0.25),
-            inset 5px 5px 5px rgba(200, 200, 200, 0.25);
+        transition: ease-in-out 0.25s;
     }
-    &::after {
-        content: '';
-        width: inherit;
-        aspect-ratio: 1/1;
-        background-image: url("../images/clock.svg");
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
+    svg {
+        fill: $dark-grey;
     }
     &__seconds,
     &__minutes,
@@ -163,13 +154,14 @@ body {
             }
         }
     }
-    &__seconds {
-        width: 175px;
+    &__hours {
+        width: 100px;
         &--needle {
             &::before {
-                width: 1px;
-                height: 100px;
-                background-color: $dark-grey;
+                width: 6px;
+                height: 50px;
+                background-color: $grey;
+                transition: ease-in-out 0.25s;
             }
         }
     }
@@ -177,19 +169,21 @@ body {
         width: 125px;
         &--needle {
             &::before {
-                width: 3px;
+                width: 4px;
                 height: 75px;
                 background-color: $dark-grey;
+                transition: ease-in-out 0.25s;
             }
         }
     }
-    &__hours {
-        width: 100px;
+    &__seconds {
+        width: 175px;
         &--needle {
             &::before {
-                width: 5px;
-                height: 50px;
+                width: 2px;
+                height: 100px;
                 background-color: $dark-grey;
+                transition: ease-in-out 0.25s;
             }
         }
     }
@@ -199,14 +193,13 @@ body {
     background-color: $dark-grey;
     .texts {
         &__toggle {
-            box-shadow:
-                -10px -10px 15px rgba(0, 0, 0, 0.15),
-                10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15),
-                inset 10px 10px 10px rgba(0, 0, 0, 0.15);
+            background-color: $light-grey;
             &--toggler {
-                left: unset;
-                right: calc(25% - 25px / 2);
-                background-color: $light-grey;
+                left: calc(75% - 25px / 2);
+                background-color: $dark-grey;
+                i {
+                    color: $green;
+                }
             }
         }
         &__datetime {
@@ -214,30 +207,21 @@ body {
         }
     }
     .the-clock {
-        border-color: $grey;
-        background-color: $dark-grey;
-        box-shadow:
-            -10px -10px 15px rgba(0, 0, 0, 0.15),
-            10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15),
-            inset 10px 10px 10px rgba(0, 0, 0, 0.15);
+        border-color: $light-grey;
         &::before {
-            background-color: $grey;
-            box-shadow:
-                -10px -10px 15px rgba(0, 0, 0, 0.15),
-                10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15),
-                inset 10px 10px 10px rgba(0, 0, 0, 0.15);
-        }
-        &::after {
-            filter: invert(50%);
-        }
-        &__seconds--needle::before {
             background-color: $light-grey;
+        }
+        svg {
+            fill: $light-grey;
+        }
+        &__hours--needle::before {
+            background-color: $grey;
         }
         &__minutes--needle::before {
             background-color: $light-grey;
         }
-        &__hours--needle::before {
-            background-color: $light-grey;
+        &__seconds--needle::before {
+            background-color: $green;
         }
     }
 }

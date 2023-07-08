@@ -23,7 +23,6 @@ body {
   height: 100vh;
   min-height: 100vh;
   max-height: 100vh;
-  background-color: hsl(0, 0%, 50%);
   overflow: hidden;
 }
 
@@ -36,6 +35,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 50px;
+  background-color: hsl(0, 5%, 90%);
+  transition: ease-in-out 0.25s;
 }
 
 .texts {
@@ -43,32 +44,41 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 25px;
+  user-select: none;
 }
 .texts__toggle {
   width: 75px;
   height: 35px;
   position: relative;
   border-radius: 100px;
-  background-color: hsl(222, 10%, 15%);
-  box-shadow: -10px -10px 15px rgba(200, 200, 200, 0.25), 10px 10px 10px rgba(200, 200, 200, 0.25), inset -5px -5px 15px rgba(200, 200, 200, 0.25), inset 10px 10px 10px rgba(200, 200, 200, 0.25);
+  background-color: hsl(0, 0%, 5%);
   cursor: pointer;
 }
 .texts__toggle--toggler {
   width: 25px;
   height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: calc(50% - 12.5px);
   left: calc(25% - 12.5px);
-  right: unset;
   border-radius: 100%;
-  background-color: hsl(0, 0%, 50%);
+  background-color: hsl(0, 5%, 90%);
+  transition: left ease-in-out 0.25s;
+}
+.texts__toggle--toggler i {
+  color: hsl(0, 0%, 5%);
+  font-size: 15px;
+  transition: ease-in-out 0.25s;
 }
 .texts__datetime {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: hsl(222, 10%, 15%);
+  color: hsl(0, 0%, 5%);
+  transition: ease-in-out 0.25s;
 }
 .texts__date {
   display: flex;
@@ -88,9 +98,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid 5px hsl(0, 0%, 50%);
+  border: solid 5px hsl(0, 0%, 5%);
   border-radius: 100%;
-  box-shadow: -10px -10px 15px rgba(200, 200, 200, 0.25), 10px 10px 10px rgba(100, 100, 100, 0.25), inset -5px -5px 15px rgba(200, 200, 200, 0.25), inset 10px 10px 10px rgba(100, 100, 100, 0.25);
+  transition: border-color ease-in 0.25s;
 }
 .the-clock::before {
   content: "";
@@ -100,17 +110,11 @@ body {
   position: absolute;
   z-index: 1000;
   border-radius: 100%;
-  background-color: hsl(0, 0%, 50%);
-  box-shadow: -5px -5px 10px rgba(100, 100, 100, 0.25), 5px 5px 5px rgba(100, 100, 100, 0.25), inset 0px 0px 5px rgba(200, 200, 200, 0.25), inset 5px 5px 5px rgba(200, 200, 200, 0.25);
+  background-color: hsl(0, 5%, 90%);
+  transition: ease-in-out 0.25s;
 }
-.the-clock::after {
-  content: "";
-  width: inherit;
-  aspect-ratio: 1/1;
-  background-image: url("../images/clock.svg");
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
+.the-clock svg {
+  fill: hsl(0, 0%, 5%);
 }
 .the-clock__seconds, .the-clock__minutes, .the-clock__hours {
   height: auto;
@@ -130,65 +134,67 @@ body {
   position: absolute;
   border-radius: 100px 100px 0 0;
 }
-.the-clock__seconds {
-  width: 175px;
+.the-clock__hours {
+  width: 100px;
 }
-.the-clock__seconds--needle::before {
-  width: 1px;
-  height: 100px;
-  background-color: hsl(0, 0%, 5%);
+.the-clock__hours--needle::before {
+  width: 6px;
+  height: 50px;
+  background-color: hsl(0, 0%, 50%);
+  transition: ease-in-out 0.25s;
 }
 .the-clock__minutes {
   width: 125px;
 }
 .the-clock__minutes--needle::before {
-  width: 3px;
+  width: 4px;
   height: 75px;
   background-color: hsl(0, 0%, 5%);
+  transition: ease-in-out 0.25s;
 }
-.the-clock__hours {
-  width: 100px;
+.the-clock__seconds {
+  width: 175px;
 }
-.the-clock__hours--needle::before {
-  width: 5px;
-  height: 50px;
+.the-clock__seconds--needle::before {
+  width: 2px;
+  height: 100px;
   background-color: hsl(0, 0%, 5%);
+  transition: ease-in-out 0.25s;
 }
 
 .clock--dark {
   background-color: hsl(0, 0%, 5%);
 }
 .clock--dark .texts__toggle {
-  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.15), 10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15), inset 10px 10px 10px rgba(0, 0, 0, 0.15);
+  background-color: hsl(0, 5%, 90%);
 }
 .clock--dark .texts__toggle--toggler {
-  left: unset;
-  right: calc(25% - 12.5px);
-  background-color: hsl(0, 0%, 50%);
+  left: calc(75% - 12.5px);
+  background-color: hsl(0, 0%, 5%);
+}
+.clock--dark .texts__toggle--toggler i {
+  color: hsl(150, 100%, 60%);
 }
 .clock--dark .texts__datetime {
-  color: hsl(0, 0%, 50%);
+  color: hsl(0, 5%, 90%);
 }
 .clock--dark .the-clock {
-  border-color: hsl(222, 10%, 15%);
-  background-color: hsl(0, 0%, 5%);
-  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.15), 10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15), inset 10px 10px 10px rgba(0, 0, 0, 0.15);
+  border-color: hsl(0, 5%, 90%);
 }
 .clock--dark .the-clock::before {
-  background-color: hsl(222, 10%, 15%);
-  box-shadow: -10px -10px 15px rgba(0, 0, 0, 0.15), 10px 10px 10px rgba(0, 0, 0, 0.15), inset -5px -5px 15px rgba(0, 0, 0, 0.15), inset 10px 10px 10px rgba(0, 0, 0, 0.15);
+  background-color: hsl(0, 5%, 90%);
 }
-.clock--dark .the-clock::after {
-  filter: invert(50%);
-}
-.clock--dark .the-clock__seconds--needle::before {
-  background-color: hsl(0, 0%, 50%);
-}
-.clock--dark .the-clock__minutes--needle::before {
-  background-color: hsl(0, 0%, 50%);
+.clock--dark .the-clock svg {
+  fill: hsl(0, 5%, 90%);
 }
 .clock--dark .the-clock__hours--needle::before {
   background-color: hsl(0, 0%, 50%);
+}
+.clock--dark .the-clock__minutes--needle::before {
+  background-color: hsl(0, 5%, 90%);
+}
+.clock--dark .the-clock__seconds--needle::before {
+  background-color: hsl(150, 100%, 60%);
 }
 
 /*# sourceMappingURL=styles.css.map */
